@@ -1,111 +1,233 @@
 # Money-Printer
 
-Develop an application for analyzing and predicting cryptocurrency trends by:
+In today's volatile cryptocurrency market, understanding trends and making accurate predictions are invaluable for investors and analysts alike. This project aims to develop an application for analyzing and predicting cryptocurrency trends by performing correlation analysis and predictive modeling.
 
-## Correlation Analysis: 
-Comparing data from two or more cryptocurrencies to identify potential correlations. This analysis will help determine observable relationships between various coins, which will be visualized using graphs.
+![Cryptocurrency Trends](images/cryptocurrency_trends.png)
 
-## Predictive Modeling:
+## Table of Contents
 
-- Data Segmentation: Splitting historical cryptocurrency data into two segments.
-- Model Testing: Applying a machine learning model to the first data segment to make predictions, then comparing these predictions with the second segment to assess model accuracy.
-- Future Predictions: If the model proves effective, extending it to predict future coin prices.
-
-Here’s a structured approach to defining your project requirements and preparing a compelling presentation story.
+- [Money-Printer](#money-printer)
+  - [Business Understanding](#business-understanding)
+  - [Data Understanding](#data-understanding)
+  - [Data Analysis](#data-analysis)
+    - [Correlation Analysis](#correlation-analysis)
+  - [Predictive Modeling](#predictive-modeling)
+    - [Data Segmentation](#data-segmentation)
+    - [Model Testing](#model-testing)
+    - [Future Predictions](#future-predictions)
+  - [Visualization](#visualization)
+  - [Conclusion and Future Work](#conclusion-and-future-work)
+  - [Project Presentation](#project-presentation)
+    - [Team Members (Slide 1)](#team-members-slide-1)
+    - [Project Overview (Slide 2)](#project-overview-slide-2)
+    - [Goals and Questions Addressed (Slide 3)](#goals-and-questions-addressed-slide-3)
+    - [Data Analysis Requirements (Slide 4)](#data-analysis-requirements-slide-4)
+    - [Approach Taken to Achieve Goals (Slide 5)](#approach-taken-to-achieve-goals-slide-5)
+    - [Results and Conclusions](#results-and-conclusions)
+      - [Phase 1: Price Prediction Dashboard (Slide 6)](#phase-1-price-prediction-dashboard-slide-6)
+      - [Phase 2: Correlation Analysis (Slide 7)](#phase-2-correlation-analysis-slide-7)
+      - [Accuracy Testing (Slide 8)](#accuracy-testing-slide-8)
+    - [Summary of Key Questions Answered (Slide 9)](#summary-of-key-questions-answered-slide-9)
+    - [Problems Encountered (Slide 10)](#problems-encountered-slide-10)
+    - [Future Considerations (Slide 11)](#future-considerations-slide-11)
+  - [For More Information](#for-more-information)
+  - [Repository Structure](#repository-structure)
 
 ---
 
-### Data Analysis Requirements**
+## Business Understanding
 
-1. **Data Sources**:
-   - Identify reliable sources for cryptocurrency data, such as historical price data, trading volume, market cap, etc.
-   - Ensure real-time or periodic updates if the application will track ongoing trends.
+The cryptocurrency market is known for its high volatility and the complex interplay between different coins. By identifying correlations and applying predictive models, we can gain insights into market dynamics and potentially forecast future trends. This application will enable users to analyze relationships between cryptocurrencies and make informed predictions about their prices.
 
-2. **Data Preprocessing**:
-   - Clean and normalize data to handle missing or inconsistent values.
-   - Perform any required transformations, like converting timestamps or adjusting for time zones.
-   - Establish standards for data granularity (daily, hourly, etc.) and ensure consistency across different coins.
+## Data Understanding
 
-3. **Correlation Analysis**:
-   - Define metrics for correlation (e.g., Pearson or Spearman correlation).
-   - Set a threshold for significant correlations to help distinguish meaningful relationships from noise.
-   - Consider any lagged correlations (e.g., if Coin A influences Coin B with a delay).
+To conduct a thorough analysis, reliable and comprehensive data is essential. We will collect historical data on various cryptocurrencies, including price, trading volume, and market capitalization, from reputable sources such as [CoinMarketCap](https://coinmarketcap.com/) and [CoinGecko](https://www.coingecko.com/). The data will be cleaned and preprocessed to ensure consistency and accuracy for analysis.
 
-4. **Predictive Modeling**:
-   - Select a suitable machine learning model, such as linear regression, ARIMA, LSTM, or transformer models.
-   - Train the model on one slice of historical data and validate it against another to assess predictive accuracy.
-   - Establish accuracy metrics (e.g., RMSE, MAE) to measure model performance and set criteria for acceptable prediction efficiency.
+## Data Analysis
 
-5. **Testing & Validation**:
-   - Run statistical tests to validate findings from correlation analysis.
-   - Perform model validation using the holdout data slice.
-   - Document the findings and patterns discovered in the analysis phase.
+### Correlation Analysis
 
+We will perform correlation analysis by comparing data from two or more cryptocurrencies to identify potential relationships. This involves:
 
-### Visualization Requirements**
+- **Calculating correlation coefficients** (e.g., Pearson or Spearman) between cryptocurrency price movements.
+- **Analyzing lagged correlations** to see if movements in one coin predict movements in another.
+- **Visualizing** the correlations using heatmaps and interactive graphs to identify significant relationships.
 
-1. **Correlation Visualization**:
-   - Use heatmaps to visualize correlation coefficients between different cryptocurrencies.
-   - Offer interactive charts (e.g., line charts with selectable overlays) to display comparative trends between pairs or groups of coins.
+![Correlation Heatmap](images/correlation_heatmap.png)
 
-2. **Historical Data Trends**:
-   - Provide line graphs or candlestick charts for individual coin trends over time (price, volume, etc.).
-   - Enable multi-line overlays to show the trends of different coins side-by-side.
+## Predictive Modeling
 
-3. **Prediction Accuracy Visualization**:
-   - Display prediction results vs. actual values for the validation data slice using line charts.
-   - Include error bars or shaded regions to represent prediction confidence intervals.
-   - Summary metrics (e.g., accuracy scores) displayed visually with gauges or bar charts.
+### Data Segmentation
 
-4. **Future Predictions**:
-   - If prediction proves viable, create a forecasting chart showing predicted prices with a confidence interval band.
-   - Allow users to adjust forecast parameters interactively, such as time horizon.
+To assess the predictive power of our models, we will:
 
-5. **User Interface Features**:
-   - Interactive dashboards where users can adjust filters (e.g., date range, coin selection).
-   - Hover effects or tooltips to show exact data points on visualizations for detailed analysis.
+- **Split historical cryptocurrency data** into training and validation sets.
+- **Use the training set** to build and train machine learning models.
+- **Validate the models** by comparing predictions against the validation set.
 
+### Model Testing
 
+We will experiment with various machine learning models suitable for time series forecasting, such as:
 
-### Presentation Story**
+- **Linear Regression**
+- **ARIMA (AutoRegressive Integrated Moving Average)**
+- **LSTM (Long Short-Term Memory) neural networks**
+- **Transformer models**
 
-Here’s a narrative structure for presenting your project to stakeholders or team members:
+We will evaluate the models using metrics like **RMSE (Root Mean Squared Error)** and **MAE (Mean Absolute Error)** to determine their accuracy.
 
-#### **Slide 1: Project Introduction**
-   - **Title**: “Cryptocurrency Correlation Analysis and Prediction Platform”
-   - **Objective**: Explain the project’s goal to create a tool for comparing cryptocurrency trends and predicting future prices.
-   
-#### **Slide 2: Background & Motivation**
-   - **Context**: Share why understanding cryptocurrency relationships and predicting prices is valuable.
-   - **Challenges**: Highlight complexities in data analysis and forecasting due to cryptocurrency volatility.
+### Future Predictions
 
-#### **Slide 3: Project Goals**
-   - **Goal 1**: Analyze correlations between cryptocurrencies to uncover patterns.
-   - **Goal 2**: Apply machine learning to make accurate predictions for future coin prices.
-   
-#### **Slide 4: Data Analysis Requirements**
-   - **Data Sources**: Mention data sources and selection criteria.
-   - **Preprocessing**: Briefly explain the process to prepare and standardize data.
-   - **Correlation Analysis**: Define how correlations will be measured and evaluated.
-   - **Predictive Modeling**: Outline the model approach and performance metrics.
+If the models demonstrate acceptable accuracy, we will use them to predict future cryptocurrency prices. We will also provide confidence intervals to represent prediction uncertainty.
 
-#### **Slide 5: Visualization Requirements**
-   - Showcase key visuals planned, such as correlation heatmaps, line graphs, and prediction comparisons.
-   - Explain how these visuals will aid in understanding trends, patterns, and model accuracy.
+![Prediction vs Actual](images/prediction_vs_actual.png)
 
-#### **Slide 6: Technical Workflow**
-   - **Architecture**: Present a high-level flow diagram (e.g., data collection, processing, analysis, visualization).
-   - **Technology Stack**: Outline tools, languages, and frameworks for implementation.
+## Visualization
 
-#### **Slide 7: Sample Analysis & Visualization**
-   - **Mock-ups**: Include example charts or a sample dashboard layout.
-   - **Insights**: Explain how users will interact with and derive insights from the application.
+Visualization plays a crucial role in understanding data and communicating insights. We will develop interactive dashboards and charts to:
 
-#### **Slide 8: Next Steps & Roadmap**
-   - Outline phases of development, starting with data collection, analysis, model testing, and visualization.
-   - List milestones like prototype completion, testing, and final release.
+- **Display correlation heatmaps** between different cryptocurrencies.
+- **Show historical trends** using line graphs and candlestick charts.
+- **Compare model predictions with actual data** using overlay plots.
+- **Visualize prediction confidence intervals**.
+- **Allow users to interact with the data** by selecting date ranges, coins, and other parameters.
 
-#### **Slide 9: Q&A**
-   - Open the floor for any questions or feedback.
+![Interactive Dashboard](images/interactive_dashboard.png)
 
-This approach should help solidify the project’s vision and build excitement for the analysis and predictive insights the application will offer.
+## Conclusion and Future Work
+
+This project aims to provide a powerful tool for analyzing and predicting cryptocurrency trends. By combining correlation analysis with predictive modeling, users can gain valuable insights into market dynamics. In the future, we plan to:
+
+- **Incorporate more advanced models** and techniques to improve prediction accuracy.
+- **Expand the application** to include real-time data updates.
+- **Integrate additional features** such as sentiment analysis from social media.
+
+---
+
+## Project Presentation
+
+### Team Members (Slide 1)
+
+- **Avineet Sharma**
+- **Omar Alsadoon**
+- **Vinayak Grover**
+- **Natasha Anghelescu**
+- **Daniel Levy**
+
+### Project Overview (Slide 2)
+
+#### Money-Printer: Cryptocurrency Correlation & Prediction Tool
+
+**Objective**:
+
+To uncover meaningful patterns in cryptocurrency price movements through predictive modeling and correlation analysis, enabling data-driven trading decisions.
+
+**Unique Value Proposition**:
+
+- Simplifies complex cryptocurrency market data into clear predictions and correlations.
+- Empowers users with actionable insights derived from advanced data analytics.
+- Reduces trading uncertainty by leveraging historical trends for informed decision-making.
+- Intuitive interface for users to analyze asset interactions and make better investment choices.
+
+_"Transforming complex data into actionable trading strategies."_
+
+### Goals and Questions Addressed (Slide 3)
+
+1. **Can a simple machine learning model leverage historical price data to accurately forecast future cryptocurrency prices?**
+2. **Do cryptocurrency prices show a correlation, and to what degree do they move together?**
+
+### Data Analysis Requirements (Slide 4)
+
+#### Data Sources
+
+- **Yahoo Finance API**: Real-time cryptocurrency data, including price, volume, and market cap.
+
+#### Correlation Metrics
+
+- **Pearson/Spearman correlation**
+- **Thresholds for significance and lagged correlations**
+
+### Approach Taken to Achieve Goals (Slide 5)
+
+The project was divided into two main components:
+
+#### 1. Price Prediction Model
+
+- Users input a cryptocurrency, start date, and slice date.
+- Utilized regression analysis to predict future prices based on historical trends.
+- Generated actionable buy/sell recommendations to inform user decisions.
+
+#### 2. Correlation Analysis
+
+- Allowed users to input two cryptocurrencies and a specific time frame.
+- Performed correlation analysis to measure and interpret the degree of relationship between the selected assets.
+
+### Results and Conclusions
+
+#### Phase 1: Price Prediction Dashboard (Slide 6)
+
+- **Result**: The regression model successfully predicted cryptocurrency prices with good accuracy.
+- **Visualization**: A line graph showing the current price of Bitcoin (BTC).
+- **Visualization**: A Prophet model predicting BTC's future price up to 3 years.
+
+#### Phase 2: Correlation Analysis (Slide 7)
+
+- **Result**: Identified meaningful correlations between cryptocurrencies.
+- **Visualization**: Heatmap displaying correlation coefficients between selected cryptocurrencies and index funds.
+- **Visualization**: Line graph showing side-by-side normalized price trends of two cryptocurrencies.
+
+#### Accuracy Testing (Slide 8)
+
+- **Result**: Tested the accuracy of the Prophet Model on historical data, effectively predicting historical price movements.
+
+### Summary of Key Questions Answered (Slide 9)
+
+1. **Can a machine learning model predict cryptocurrency prices?**
+
+   - **Answer**: Yes, with good accuracy for shorter time frames.
+
+2. **Are cryptocurrency prices correlated?**
+
+   - **Answer**: Yes, but results improved after resolving an issue with the `.pct_change()` function.
+
+   **Problem**: Initial correlation data was less correlated than expected.
+
+   **Solution**: Removed the duplicate `.pct_change()` function to get more realistic results.
+
+### Problems Encountered (Slide 10)
+
+1. **Prediction Uncertainty**:
+
+   - **Problem**: Predictions became more uncertain the further out the model forecasted.
+   - **Solution**: Limited predictions by adding a slice date window for better accuracy.
+
+### Future Considerations (Slide 11)
+
+1. **Dynamic Model Inputs**:
+
+   - Make the model more dynamic by allowing user inputs for cryptocurrency and date range.
+
+2. **Advanced Predictive Algorithms**:
+
+   - Use a more advanced predictive algorithm that incorporates more variables than just price points.
+
+Additional questions and research plans could include further optimization of correlation metrics and predictive modeling.
+
+---
+
+## For More Information
+
+For any inquiries or further information about the project, please contact the team members or visit our repository.
+
+## Repository Structure
+
+- `data/`: Contains the datasets used for analysis.
+- `notebooks/`: Jupyter notebooks with data analysis and modeling code.
+- `images/`: Visual assets used in the README and documentation.
+- `src/`: Source code for the application and models.
+- `README.md`: Project documentation and overview.
+
+---
+
+By adding slide numbers to each relevant section in the "Project Presentation," we've aligned the README with your presentation slides for better reference and coherence.
+
