@@ -2,7 +2,7 @@
 
 In the highly volatile cryptocurrency market, understanding trends and making accurate predictions can empower investors and analysts to make better decisions. This project leverages **correlation analysis** and the **Prophet model** to provide insights into market behavior and forecast cryptocurrency trends effectively.
 
-![Cryptocurrency Trends](price-predictor/plots/actual_vs_predict_4_year.png)
+![Cryptocurrency Trends](price-predictor/plots/current_price.png)
 
 ---
 
@@ -99,7 +99,7 @@ To ensure the robustness of the Prophet model:
 
 ### Model Testing
 
-![Testing the prediction model](price-predictor/plots/actual_vs_predicted_2024.png)
+![Testing the prediction model](price-predictor/plots/actual_vs_predict_4_year.png)
 
 The **Prophet model**, a time-series forecasting tool, was utilized for its ability to handle seasonality and trends effectively. It was evaluated based on:
 
