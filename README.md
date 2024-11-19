@@ -62,7 +62,7 @@ To ensure accuracy, the data undergoes rigorous preprocessing:
 - Removal of duplicates and null values.
 - Conversion of timestamp data to datetime objects.
 - Normalization for consistent analysis (e.g., scaling prices for comparison).
-![Normalized Price of BTC and ETH](<correlation-finder/Corr_Media/Normalized Price of eth vs btc.png>)
+![Normalized Price of BTC and ETH](<correlation-finder/Corr_Media/Normalized_Price_of_eth_btc.png>)
 
 ---
 
