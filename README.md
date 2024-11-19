@@ -1,6 +1,6 @@
 # Money-Printer
 
-In the highly volatile cryptocurrency market, understanding trends and making accurate predictions can empower investors and analysts to make better decisions. This project aims to develop a robust application for analyzing cryptocurrency trends by performing **correlation analysis** and **predictive modeling**, offering insights into market behavior.
+In the highly volatile cryptocurrency market, understanding trends and making accurate predictions can empower investors and analysts to make better decisions. This project leverages **correlation analysis** and the **Prophet model** to provide insights into market behavior and forecast cryptocurrency trends effectively.
 
 ![Cryptocurrency Trends](price-predictor/plots/actual_vs_predict_4_year.png)
 
@@ -13,7 +13,7 @@ In the highly volatile cryptocurrency market, understanding trends and making ac
   - [Data Understanding](#data-understanding)
   - [Data Analysis](#data-analysis)
     - [Correlation Analysis](#correlation-analysis)
-  - [Predictive Modeling](#predictive-modeling)
+  - [Predictive Modeling with Prophet](#predictive-modeling-with-prophet)
     - [Data Segmentation](#data-segmentation)
     - [Model Testing](#model-testing)
     - [Future Predictions](#future-predictions)
@@ -31,13 +31,13 @@ In the highly volatile cryptocurrency market, understanding trends and making ac
 
 ## Business Understanding
 
-The cryptocurrency market's high volatility and complex interrelationships between coins present a challenge for traders and investors. However, by identifying correlations and applying predictive models, it’s possible to gain insights into:
+The cryptocurrency market's high volatility and complex interrelationships between coins present a challenge for traders and investors. However, by identifying correlations and applying predictive modeling with Prophet, it’s possible to gain insights into:
 
 - **Market dynamics**: Understanding how cryptocurrencies influence each other.
 - **Trend prediction**: Estimating future price movements based on historical data.
 - **Risk management**: Identifying which assets move together or diverge to inform diversification strategies.
 
-The **Money-Printer** application aims to address these needs by equipping users with a tool to analyze cryptocurrency trends and correlations while generating actionable insights.
+The **Money-Printer** application addresses these needs by equipping users with a tool to analyze cryptocurrency trends and correlations while generating actionable insights.
 
 ---
 
@@ -55,12 +55,14 @@ The **Money-Printer** application aims to address these needs by equipping users
 2. **[CoinGecko](https://www.coingecko.com/)**: Provides historical and real-time market data.
 
 ### Data Cleaning and Preprocessing:
+![Pre Normalized Prices](correlation-finder/Corr_Media/UnNormalized_Price_ETH_BTC.png)
 
 To ensure accuracy, the data undergoes rigorous preprocessing:
 
 - Removal of duplicates and null values.
 - Conversion of timestamp data to datetime objects.
 - Normalization for consistent analysis (e.g., scaling prices for comparison).
+![Normalized Price of BTC and ETH](<correlation-finder/Corr_Media/Normalized Price of eth vs btc.png>)
 
 ---
 
@@ -81,39 +83,38 @@ Key steps:
 
 3. **Visualization**:
    - Use heatmaps and interactive graphs to make relationships clear.
+![Correlation Heatmap](correlation-finder/Corr_Media/Corr_Matrix_SPY_ETH_BTC.png)
 
 ---
 
-## Predictive Modeling
+## Predictive Modeling with Prophet
 
 ### Data Segmentation
 
-To ensure the model's robustness:
+To ensure the robustness of the Prophet model:
 
 - **Split Data**: Divide historical data into training and validation sets.
-- **Train Models**: Fit models to the training set.
+- **Train Model**: Train the Prophet model using the training set.
 - **Validate**: Test predictions on unseen data from the validation set.
 
 ### Model Testing
 
-Several machine learning models are employed:
+![Testing the prediction model](price-predictor/plots/actual_vs_predicted_2024.png)
 
-1. **Linear Regression**: Simple and interpretable but limited in capturing complex patterns.
-2. **ARIMA**: Suitable for time-series data, focusing on trends and seasonality.
-3. **LSTM Neural Networks**: Designed for sequential data, capturing long-term dependencies.
-4. **Transformer Models**: State-of-the-art for time-series forecasting with attention mechanisms.
+The **Prophet model**, a time-series forecasting tool, was utilized for its ability to handle seasonality and trends effectively. It was evaluated based on:
 
-Evaluation metrics include:
-
-- **Root Mean Squared Error (RMSE)**
-- **Mean Absolute Error (MAE)**
+- **Prediction Accuracy**: Comparing forecasted values with actual values.
+- **Visualization**: Displaying predicted vs actual trends to verify performance.
 
 ### Future Predictions
 
-Predictions are made for selected cryptocurrencies, with:
+Using Prophet, predictions were generated for selected cryptocurrencies with:
 
-- **Confidence Intervals**: Representing uncertainty.
-- **Buy/Sell Recommendations**: Helping users make informed decisions.
+- **Confidence Intervals**: Representing uncertainty in the forecasts.
+- **Trend Analysis**: Highlighting potential future movements in the market.
+
+![Prediction vs Actual](price-predictor/plots/actual_vs_predicted_2024.png)
+![Price Prediction with Slice Date](price-predictor/plots/Price_Predict_with_Slice_Date.png)
 
 ---
 
@@ -131,9 +132,9 @@ Interactive dashboards and charts help users explore:
 
 ## Conclusion and Future Work
 
-The Money-Printer project combines correlation analysis and predictive modeling to provide insights into cryptocurrency markets. While the current application offers valuable tools, future enhancements include:
+The Money-Printer project combines correlation analysis and predictive modeling using Prophet to provide insights into cryptocurrency markets. While the current application offers valuable tools, future enhancements include:
 
-1. **Advanced models**: Integrating external factors like sentiment data and macroeconomic indicators.
+1. **Advanced models**: Exploring techniques like LSTM or transformer models to improve prediction accuracy.
 2. **Real-time updates**: Providing dynamic, up-to-date analyses.
 3. **Broader asset coverage**: Expanding analysis to include more coins and indices.
 4. **User-friendly interfaces**: Enhanced input options and visualizations.
@@ -154,7 +155,7 @@ The Money-Printer project combines correlation analysis and predictive modeling 
 
 This project uses **data-driven tools** to analyze cryptocurrency trends through:
 
-- Predictive modeling for price forecasting.
+- Predictive modeling with Prophet for price forecasting.
 - Correlation analysis for asset relationship insights.
 
 ### Goals and Questions Addressed
@@ -166,7 +167,7 @@ This project uses **data-driven tools** to analyze cryptocurrency trends through
 
 #### Price Prediction Dashboard:
 
-- Regression analysis for price trends.
+- Prophet analysis for price trends.
 - Interactive inputs for custom analysis.
 - Visualization of buy/sell signals.
 
@@ -174,12 +175,16 @@ This project uses **data-driven tools** to analyze cryptocurrency trends through
 
 - Explored relationships between selected assets.
 - Interactive graphs and heatmaps to highlight significant findings.
+![Percent Change ETH vs BTC](correlation-finder/Corr_Media/Percent_Change_ETH_BTC.png)
 
 ### Results and Conclusions
+![Buy Signal](price-predictor/plots/Buy_Signal_Prediction_based.png)
+---
+![Sell Signal](price-predictor/plots/Sell_signal_Prediction_Based.png)
 
 #### Price Prediction:
 
-- Models demonstrated strong short-term accuracy.
+- The Prophet model demonstrated strong short-term trend prediction accuracy.
 - Visualization tools provided actionable insights.
 
 #### Correlation Analysis:
@@ -190,13 +195,15 @@ This project uses **data-driven tools** to analyze cryptocurrency trends through
 ---
 
 ## Repository Structure
-├── price-predictor/              # Code and visualizations for prediction
+├── price-predictor/              
   └── plots/
   └── crypto_price_predictor_visualizer.ipynb
-├── correlation-finder/        # Tools for correlation analysis
+
+├── correlation-finder/        
   └── Corr_Media/
   └── crypto_correlation_finder.ipynb
-├── README       
+
+├── README.md
 
 ---
 
